@@ -1,6 +1,6 @@
 {
     "defaultCommandTimeout": 10000,
-    "pageLoadTimeout": 180000,
+    "pageLoadTimeout": 30000,
     "experimentalSessionAndOrigin": true,
     "numTestsKeptInMemory": 0,
     "reporter": "cypress-mochawesome-reporter",
@@ -15,7 +15,7 @@
     },
     "video": true,
     "env": {
-        "baseUrl": "https://www.saucedemo.com",
+        "baseUrl": "https://www.saucedemo.com/",
         "username" : "standard_user",
         "password" : "secret_sauce"
     }

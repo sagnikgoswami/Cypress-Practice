@@ -58,7 +58,7 @@ describe("Sauce Demo Tests - Add To Cart Function", function () {
                         name = text1 //Storing the value for later comparison
                         cy.log("Max price item Name is: "  +text1)
                     })
-                    hp.itemDesc()    .eq(`${count}`).invoke('text').then((text1)=>{
+                    hp.itemDesc().eq(`${count}`).invoke('text').then((text1)=>{
                         desc = text1 //Storing the value for later comparison
                         cy.log("Description of the item is: "  +text1)
                     })
@@ -84,6 +84,11 @@ describe("Sauce Demo Tests - Add To Cart Function", function () {
         //Comparing the Price of the item added to the cart and the one in cart  
         hp.cartItemPrice().invoke('text').then((text1)=>{
             expect(text1).to.equal(value)
+        })
+        //Checking if the item count is avialble or not
+        hp.cartItemQuan().invoke('text').then((text1)=>{
+            let q = parseInt(text1) //Parsing the value for assertion
+            expect(q).to.be.greaterThan(0)
         })
     })
 })

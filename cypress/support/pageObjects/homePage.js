@@ -51,6 +51,11 @@ class homePage
         return cy.get('.item_pricebar >div')
     }
 
+    cartItemQuan()
+    {
+        return cy.get('.cart_quantity')
+    }
+
     filterField()
     {
         return cy.get('select[data-test="product_sort_container"]')
@@ -80,5 +85,7 @@ class homePage
     {
         return cy.get('#password')
     }
+
+
 }
 export default homePage;
