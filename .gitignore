@@ -1,4 +1,5 @@
 /cypress/downloads/**
 /cypress/report/**
 /cypress/videos/**
+/cypress/screenshots/**
 
