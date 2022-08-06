@@ -22,8 +22,8 @@ describe("Sauce Demo Tests - Sorting Function", function () {
         //Login into the application
         cy.Login();
 
-        //Selecting to sort the price from high to low
-        hp.filterOption().select('hilo')
+        //Selecting to sort the price from low to high
+        hp.filterOption().select('lohi')
 
         //Verifying if sorting is working
         hp.itemPrice().each(($item,count)=>{ //
@@ -38,7 +38,7 @@ describe("Sauce Demo Tests - Sorting Function", function () {
                             expect(price).to.equal(price2)
                         }
                         else{
-                            expect(price2).to.be.greaterThan(price) //Assert for comparison
+                            expect(price).to.be.greaterThan(price2) //Assert for comparison
                         }
                     })
                 }
