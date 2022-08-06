@@ -12,7 +12,7 @@ describe("Sauce Demo Tests - Sorting Function", function () {
         cy.Login();
 
         //Verifying if the filter option is available
-        cy.get('select[data-test="product_sort_container"]').should('exist')
+        hp.filterField().should('exist')
         
     })
 
