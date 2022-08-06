@@ -1,0 +1,9 @@
+{
+    "authority": "https://login.microsoftonline.com/<tenant ID>/oauth2/token",
+    "grant_type": "client_credentials",
+    "client_id": "<client ID>",
+    "client_secret": "<client secret>",
+    "resource": "<client ID>",
+    "username": "autorecap@ericsson.com",
+    "password": "Prabhuprasadmishra@19898890"
+}

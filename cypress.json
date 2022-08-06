@@ -1,0 +1,22 @@
+{
+    "defaultCommandTimeout": 10000,
+    "pageLoadTimeout": 60000,
+    "experimentalSessionAndOrigin": true,
+    "numTestsKeptInMemory": 0,
+    "reporter": "cypress-mochawesome-reporter",
+    "reporterOptions": {
+        "reportDir": "cypress/report",
+        "reportFilename": "Cypress_Test",
+        "reportPageTitle": "Assignment_Sauce",
+        "overwrite": true,
+        "html": true,
+        "json": false,
+        "timestamp": "mm/dd/yyyy_HH:MM:ss"
+    },
+    "video": true,
+    "env": {
+        "baseUrl": "https://www.saucedemo.com/",
+        "username" : "standard_user",
+        "password" : "secret_sauce"
+    }
+}
