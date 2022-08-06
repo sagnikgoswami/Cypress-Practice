@@ -72,17 +72,17 @@ describe("Sauce Demo Tests - Add To Cart Function", function () {
         })
 
         //Verify if the item is added correctly
-        cy.get('.shopping_cart_link').click()
+        hp.cartButton().click()
         //Comparing the Name of the item added to the cart and the one in cart
-        cy.get('.inventory_item_name').invoke('text').then((text1)=>{
+        hp.cartItemName().invoke('text').then((text1)=>{
             expect(text1).to.equal(name)
         })
         //Comparing the Description of the item added to the cart and the one in cart
-        cy.get('.inventory_item_desc').invoke('text').then((text1)=>{
+        hp.cartItemDesc().invoke('text').then((text1)=>{
             expect(text1).to.equal(desc)
         })
         //Comparing the Price of the item added to the cart and the one in cart  
-        cy.get('.item_pricebar >div').invoke('text').then((text1)=>{
+        hp.cartItemPrice().invoke('text').then((text1)=>{
             expect(text1).to.equal(value)
         })
     })

@@ -31,14 +31,54 @@ class homePage
         cy.get('div.inventory_item > div > div.pricebar > button').eq(num).click()
     }
 
+    cartButton()
+    {
+        return cy.get('.shopping_cart_link')
+    }
+
+    cartItemName()
+    {
+        return cy.get('.inventory_item_name')
+    }
+
+    cartItemDesc()
+    {
+        return cy.get('.inventory_item_desc')
+    }
+
+    cartItemPrice()
+    {
+        return cy.get('.item_pricebar >div')
+    }
+
     filterField()
     {
         return cy.get('select[data-test="product_sort_container"]')
     }
 
-    filterOption(){
+    filterOption()
+    {
         return cy.get('.product_sort_container')
     }
 
+    linkedInButton()
+    {
+        return cy.get('.social_linkedin >a')
+    }
+
+    linkedInTitle()
+    {
+        return cy.get('.authwall-join-form__title')
+    }
+
+    linkedInUN()
+    {
+        return cy.get('input[name*="email-or-phone"]')
+    }
+
+    linkedInPW()
+    {
+        return cy.get('#password')
+    }
 }
 export default homePage;

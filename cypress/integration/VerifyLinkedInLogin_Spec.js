@@ -11,7 +11,7 @@ describe("Sauce Demo Tests - Verify LinkedIn Login", function () {
         //Login into the application
         cy.Login();
 
-        cy.get('.social_linkedin >a')
+        hp.linkedInButton()
         .scrollIntoView()
         .should('have.attr', 'href')
         .and('equal', 'https://www.linkedin.com/company/sauce-labs/')
@@ -23,7 +23,7 @@ describe("Sauce Demo Tests - Verify LinkedIn Login", function () {
         cy.Login()
 
         //Changing the attribute value from _blank to _self (As cypress handle multiple tabs)
-        cy.get('footer > ul > li > a').last()
+        hp.linkedInButton()
         .invoke('attr' , 'target' , '_self')
         .should('have.attr', 'target', '_self').click()
 
