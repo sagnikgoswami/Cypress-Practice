@@ -79,6 +79,8 @@ Cypress.Commands.add("Login", () => {
   const server = Cypress.env("baseUrl")
   const usr = Cypress.env("username")
   const pw = Cypress.env("password")
+  
+  cy.clearCookie('react').clearCookie('angular');
 
   cy.visit(server);
   cy.get('input[data-test*="username"]').type(usr)
