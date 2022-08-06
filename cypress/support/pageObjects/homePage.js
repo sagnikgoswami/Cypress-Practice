@@ -30,7 +30,9 @@ class homePage
         cy.get('div.inventory_item > div > div.pricebar > button').eq(num).click()
     }
 
-    
+    filterOption(){
+        return cy.get('.product_sort_container')
+    }
 
 }
 export default homePage;

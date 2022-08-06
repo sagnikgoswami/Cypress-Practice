@@ -22,7 +22,7 @@ describe("Sauce Demo Tests - Sorting Function", function () {
         cy.Login();
 
         //Selecting to sort the price from high to low
-        cy.get('.product_sort_container').select('hilo')
+        hp.filterOption().select('hilo')
 
         //Verifying if sorting is working
         hp.itemPrice().each(($item,count)=>{ //
