@@ -80,6 +80,8 @@ Cypress.Commands.add("Login", () => {
   const usr = Cypress.env("username")
   const pw = Cypress.env("password")
   
+  expect(usr).not.to.be.null
+  expect(pw).not.to.be.null
   cy.clearCookie('react').clearCookie('angular');
 
   cy.visit(server);

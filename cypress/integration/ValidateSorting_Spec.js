@@ -7,7 +7,7 @@ const  hp = new homePage()
 
 describe("Sauce Demo Tests - Sorting Function", function () {
 
-    it("Verify if the filter is available", function () {
+    it.only("Verify if the filter is available", function () {
         
         //Login into the application
         cy.Login();
