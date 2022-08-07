@@ -31,7 +31,7 @@ describe("Sauce Demo Tests - Add To Cart Function", function () {
     })
 
 
-    it("Add the item with the Highest price to the cart", function(){
+    it.only("Add the item with the Highest price to the cart", function(){
         
         const prices = [] //Declaring array to store the prices
         hp.inventoryItems().each(($item,count)=>{
@@ -64,6 +64,7 @@ describe("Sauce Demo Tests - Add To Cart Function", function () {
                     hp.addToCartButton(`${count}`)
                     //Validating if the Add to cart button has changed to remove after being clicked on
                     hp.itemPrice().eq(`${count}`).siblings('button').should('contain', 'Remove')
+                    hp.shoppingCartBadge().should('exist')
                 }            
             })
         })

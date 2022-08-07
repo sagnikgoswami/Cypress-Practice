@@ -16,6 +16,11 @@ class homePage
         return cy.get('div.inventory_item > div > div.pricebar > button')
     }
 
+    shoppingCartBadge()
+    {
+        return cy.get('.shopping_cart_badge')
+    }
+
     itemName()
     {
         return cy.get('div.inventory_item > div > div > a >div')
