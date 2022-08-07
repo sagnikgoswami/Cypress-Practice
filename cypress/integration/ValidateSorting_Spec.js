@@ -7,10 +7,15 @@ const  hp = new homePage()
 
 describe("Sauce Demo Tests - Sorting Function", function () {
 
-    it("Verify if the filter is available", function () {
-        
+    beforeEach(()=>{
+        cy.exec('npm cache clear --force')
+        cy.clearCookies()
         //Login into the application
         cy.Login();
+        
+    })
+
+    it("Verify if the filter is available", function () {
 
         //Verifying if the filter option is available
         hp.filterField().should('exist')
@@ -18,9 +23,6 @@ describe("Sauce Demo Tests - Sorting Function", function () {
     })
 
     it("Verify the sorting operation by selecting the filter option", function () {
-        
-        //Login into the application
-        cy.Login();
 
         //Selecting to sort the price from low to high
         hp.filterOption().select('lohi')

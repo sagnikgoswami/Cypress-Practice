@@ -6,10 +6,14 @@ const  hp = new homePage()
 
 describe("Sauce Demo Tests - Verify LinkedIn Login", function () {
 
-    it("Verify if the LinkedIn Button is available", function () {
-        
+    beforeEach(()=>{
+        cy.exec('npm cache clear --force')
+        cy.clearCookies()
         //Login into the application
         cy.Login();
+    })
+
+    it("Verify if the LinkedIn Button is available", function () {
 
         hp.linkedInButton()
         .scrollIntoView()
@@ -18,9 +22,6 @@ describe("Sauce Demo Tests - Verify LinkedIn Login", function () {
     })
 
     it("Verify if clicking on LinkedIn Button navigates to the Linked in page", function () {
-        
-        //Login into the application
-        cy.Login()
 
         //Changing the attribute value from _blank to _self (As cypress handle multiple tabs)
         hp.linkedInButton()

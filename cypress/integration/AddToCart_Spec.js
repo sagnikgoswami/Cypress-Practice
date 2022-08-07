@@ -6,39 +6,34 @@ const  hp = new homePage()
 
 describe("Sauce Demo Tests - Add To Cart Function", function () {
 
-    it("Verify the price is available for all the items ", function () {
-        
+    beforeEach(()=>{
+        cy.exec('npm cache clear --force')
+        cy.clearCookies()
         //Login into the application
         cy.Login();
-
-        hp.inventoryItems().each(($item,count)=>{
-            hp.itemPrice().eq(`${count}`).invoke('text').then((text1)=>{
-                var price = text1.split("$")
-                expect(price[1]).to.not.equal('0.00')
-                expect(price[1]).not.to.be.null
-                cy.log("The price is: " +price[1])
-            })
-        })
     })
 
-    it("Verify the Add to cart button for all the items", function(){
-        
-        //Login into the application
-        cy.Login();
+    it("Verify the price and Add to cart button is available for all the items ", function () {
 
-        hp.inventoryItems().each(($item,count)=>{
+        hp.inventoryItems().each(($item,count)=>{ //Number of items being displayed
+            //Checking if price is available for all items
+            hp.itemPrice().eq(`${count}`).invoke('text').then((text1)=>{ 
+                var price = text1.split("$")
+                //Validating the price
+                expect(price[1]).to.not.equal('0.00')
+                expect(price[1]).not.to.be.null
+            })
+            //Checking if Add to cart button is available for all items
             hp.addddToCartOption().eq(`${count}`).invoke('text').then((text1)=>{
                 expect(text1).to.contain('Add to cart')
             })
         })
     })
 
+
     it("Add the item with the Highest price to the cart", function(){
         
-        //Login into the application
-        cy.Login();
-        
-        const prices = []
+        const prices = [] //Declaring array to store the prices
         hp.inventoryItems().each(($item,count)=>{
             hp.itemPrice().eq(`${count}`).invoke('text').then((text1)=>{
                 var price = text1.split("$")    //Removing the $ symbol from the price 
@@ -67,6 +62,8 @@ describe("Sauce Demo Tests - Add To Cart Function", function () {
                         cy.log("The value of item is: " +text2) 
                     })
                     hp.addToCartButton(`${count}`)
+                    //Validating if the Add to cart button has changed to remove after being clicked on
+                    hp.itemPrice().eq(`${count}`).siblings('button').should('contain', 'Remove')
                 }            
             })
         })
