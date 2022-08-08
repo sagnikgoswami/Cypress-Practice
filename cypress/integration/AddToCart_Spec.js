@@ -31,7 +31,7 @@ describe("Sauce Demo Tests - Add To Cart Function", function () {
     })
 
 
-    it.only("Add the item with the Highest price to the cart", function(){
+    it("Add the item with the Highest price to the cart", function(){
         
         const prices = [] //Declaring array to store the prices
         hp.inventoryItems().each(($item,count)=>{
